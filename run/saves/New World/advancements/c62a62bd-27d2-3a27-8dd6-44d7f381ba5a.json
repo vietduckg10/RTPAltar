@@ -1,0 +1,48 @@
+{
+  "minecraft:nether/root": {
+    "criteria": {
+      "entered_nether": "2023-01-28 17:51:46 +0700"
+    },
+    "done": true
+  },
+  "minecraft:end/root": {
+    "criteria": {
+      "entered_end": "2023-01-28 17:52:24 +0700"
+    },
+    "done": true
+  },
+  "minecraft:story/enter_the_nether": {
+    "criteria": {
+      "entered_nether": "2023-01-28 17:51:46 +0700"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:badlands": "2023-01-28 17:51:28 +0700",
+      "minecraft:forest": "2023-01-28 18:05:59 +0700",
+      "minecraft:frozen_ocean": "2023-01-28 17:52:41 +0700",
+      "minecraft:old_growth_birch_forest": "2023-01-28 17:52:04 +0700"
+    },
+    "done": false
+  },
+  "minecraft:nether/explore_nether": {
+    "criteria": {
+      "minecraft:basalt_deltas": "2023-01-28 17:51:46 +0700"
+    },
+    "done": false
+  },
+  "minecraft:nether/fast_travel": {
+    "criteria": {
+      "travelled": "2023-01-28 17:52:03 +0700"
+    },
+    "done": true
+  },
+  "minecraft:story/enter_the_end": {
+    "criteria": {
+      "entered_end": "2023-01-28 17:52:24 +0700"
+    },
+    "done": true
+  },
+  "DataVersion": 3120
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "rtpaltar:block/rtp_altar_block"
+    },
+    "facing=south": {
+      "model": "rtpaltar:block/rtp_altar_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "rtpaltar:block/rtp_altar_block",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "rtpaltar:block/rtp_altar_block",
+      "y": 90
+    }
+  }
+}

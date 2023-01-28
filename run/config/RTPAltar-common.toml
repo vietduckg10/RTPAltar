@@ -1,0 +1,5 @@
+
+["RTP Altar Config"]
+	#Search for valid teleport surface if true, otherwise will teleport to maximum world height
+	"Search For Surface" = true
+
