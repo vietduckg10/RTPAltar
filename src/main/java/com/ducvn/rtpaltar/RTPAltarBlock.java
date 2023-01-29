@@ -1,16 +1,15 @@
 package com.ducvn.rtpaltar;
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementList;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.ServerAdvancementManager;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -36,7 +35,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-import java.time.format.TextStyle;
 import java.util.List;
 import java.util.Random;
 
@@ -87,10 +85,9 @@ public class RTPAltarBlock extends Block {
             MinecraftServer minecraftserver = serverLevel.getServer();
             ResourceKey<Level> resourcekey = activeBlockPlayer.level.OVERWORLD;
             ServerLevel overworldLevel = minecraftserver.getLevel(resourcekey);
-            if ((activeBlockPlayer.level.dimension() != Level.OVERWORLD) && (overworldLevel != null)
-            && minecraftserver.isNetherEnabled()){
-                AABB altarArea = new AABB(pos.getX() - 3D, pos.getY() - 3D, pos.getZ() - 3D,
-                        pos.getX() + 3D, pos.getY() + 2D, pos.getZ() + 3D);
+            if ((activeBlockPlayer.level.dimension() != Level.OVERWORLD) && (overworldLevel != null)){
+                AABB altarArea = new AABB(pos.getX() - 3D, pos.getY() - 2D, pos.getZ() - 3D,
+                        pos.getX() + 3D, pos.getY() + 3D, pos.getZ() + 3D);
                 List<Player> playersNearAltar = level.getEntitiesOfClass(Player.class, altarArea);
                 BlockPos teleportLocation;
                 if (RTPAltarConfig.search_for_surface.get()){
@@ -112,7 +109,18 @@ public class RTPAltarBlock extends Block {
                 }
             }
         }
-        return super.use(p_60503_, level, pos, activeBlockPlayer, p_60507_, p_60508_);
+        return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public void animateTick(BlockState p_220827_, Level level, BlockPos pos, RandomSource randomSource) {
+        level.addParticle(ParticleTypes.ENCHANT,
+                (pos.getX() - 0.2D) + (randomSource.nextDouble() * 1.4D),
+                pos.getY() + 1.7D,
+                (pos.getZ() - 0.2D) + (randomSource.nextDouble() * 1.4D),
+                0D, 0D, 0D);
+        
+        super.animateTick(p_220827_, level, pos, randomSource);
     }
 
     private BlockPos getRandomLocation(Level level){

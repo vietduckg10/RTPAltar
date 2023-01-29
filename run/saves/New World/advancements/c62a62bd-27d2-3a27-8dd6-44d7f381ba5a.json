@@ -19,6 +19,7 @@
   },
   "minecraft:adventure/adventuring_time": {
     "criteria": {
+      "minecraft:birch_forest": "2023-01-29 16:03:23 +0700",
       "minecraft:badlands": "2023-01-28 17:51:28 +0700",
       "minecraft:forest": "2023-01-28 18:05:59 +0700",
       "minecraft:frozen_ocean": "2023-01-28 17:52:41 +0700",
